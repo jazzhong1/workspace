@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style media="screen">
+    table,
+    tr,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <script type="text/javascript">
+    function change(choice) {
+      if (choice[0].name =='red') {
+        var doc = document.getElementById('td1');
+        doc.style.background = 'red';
+      }
+      else if (choice[0].name =='ju') {
+        console.log(choice[0].name);
+        var doc = document.getElementById('td1');
+        doc.style.background = 'orange';
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1 align='center'>rainbowColor</h1>
+
+  <table align="center">
+    <tr>
+      <td>전체선택:</td>
+      <td id="td1">
+        <label for=""><input type="checkbox" name="red" value="" onclick="change(getElementsByName('red'))"></label>
+        <label for="">주<input type="checkbox" name="ju" value="" onclick="change(getElementsByName('ju'))"></label>
+        <label for="">노<input type="checkbox" name="no" value=""  onclick="change(getElementsByName('ju'))"></label>
+        <label for="">초<input type="checkbox" name="cho" value=""></label>
+        <label for="">파<input type="checkbox" name="pa" value=""></label>
+        <label for="">남<input type="checkbox" name="nam" value=""></label>
+        <label for="">보<input type="checkbox" name="bo" value=""></label> </td>
+    </tr>
+    <tr >
+      <td>하나:</td>
+      <td class="td1">
+        <label for="">밤<input type="checkbox" name="ban" value=""></label>
+        <label for="">주<input type="checkbox" name="ju" value=""></label>
+        <label for="">노<input type="checkbox" name="no" value=""></label>
+        <label for="">초<input type="checkbox" name="cho" value=""></label>
+        <label for="">파<input type="checkbox" name="pa" value=""></label>
+        <label for="">남<input type="checkbox" name="nam" value=""></label>
+        <label for="">보<input type="checkbox" name="bo" value=""></label> </td>
+    </tr>
+
+    <tr class="all" id=td1>
+      <td>둘:</td>
+      <td> <label for="">밤<input type="checkbox" name="ban" value=""></label>
+        <label for="">주<input type="checkbox" name="ju" value=""></label>
+        <label for="">노<input type="checkbox" name="no" value=""></label>
+        <label for="">초<input type="checkbox" name="cho" value=""></label>
+        <label for="">파<input type="checkbox" name="pa" value=""></label>
+        <label for="">남<input type="checkbox" name="nam" value=""></label>
+        <label for="">보<input type="checkbox" name="bo" value=""></label> </td>
+    </tr>
+
+    <tr class="all" id=td1>
+      <td>셋:</td>
+      <td> <label for="">밤<input type="checkbox" name="ban" value=""></label>
+        <label for="">주<input type="checkbox" name="ju" value=""></label>
+        <label for="">노<input type="checkbox" name="no" value=""></label>
+        <label for="">초<input type="checkbox" name="cho" value=""></label>
+        <label for="">파<input type="checkbox" name="pa" value=""></label>
+        <label for="">남<input type="checkbox" name="nam" value=""></label>
+        <label for="">보<input type="checkbox" name="bo" value=""></label> </td>
+    </tr>
+
+    <tr class="all" id=td1>
+      <td>넷:</td>
+      <td> <label for="">밤<input type="checkbox" name="ban" value=""></label>
+        <label for="">주<input type="checkbox" name="ju" value=""></label>
+        <label for="">노<input type="checkbox" name="no" value=""></label>
+        <label for="">초<input type="checkbox" name="cho" value=""></label>
+        <label for="">파<input type="checkbox" name="pa" value=""></label>
+        <label for="">남<input type="checkbox" name="nam" value=""></label>
+        <label for="">보<input type="checkbox" name="bo" value=""></label> </td>
+    </tr>
+
+    <tr class="all" id=td1>
+      <td>다섯:</td>
+      <td> <label for="">밤<input type="checkbox" name="ban" value=""></label>
+        <label for="">주<input type="checkbox" name="ju" value=""></label>
+        <label for="">노<input type="checkbox" name="no" value=""></label>
+        <label for="">초<input type="checkbox" name="cho" value=""></label>
+        <label for="">파<input type="checkbox" name="pa" value=""></label>
+        <label for="">남<input type="checkbox" name="nam" value=""></label>
+        <label for="">보<input type="checkbox" name="bo" value=""></label> </td>
+    </tr>
+
+    <tr class="all" id=td1>
+      <td>여섯:</td>
+      <td> <label for="">밤<input type="checkbox" name="ban" value=""></label>
+        <label for="">주<input type="checkbox" name="ju" value=""></label>
+        <label for="">노<input type="checkbox" name="no" value=""></label>
+        <label for="">초<input type="checkbox" name="cho" value=""></label>
+        <label for="">파<input type="checkbox" name="pa" value=""></label>
+        <label for="">남<input type="checkbox" name="nam" value=""></label>
+        <label for="">보<input type="checkbox" name="bo" value=""></label> </td>
+    </tr>
+
+
+    <tr class="all" id=td1>
+      <td>일곱:</td>
+      <td> <label for="">밤<input type="checkbox" name="ban" value=""></label>
+        <label for="">주<input type="checkbox" name="ju" value=""></label>
+        <label for="">노<input type="checkbox" name="no" value=""></label>
+        <label for="">초<input type="checkbox" name="cho" value=""></label>
+        <label for="">파<input type="checkbox" name="pa" value=""></label>
+        <label for="">남<input type="checkbox" name="nam" value=""></label>
+        <label for="">보<input type="checkbox" name="bo" value=""></label> </td>
+    </tr>
+
+    <tr>
+      <td colspan="2" align='center'> <input type="submit" name="" value="submt"> <input type="reset" name="" value="reset"> </td>
+    </tr>
+
+  </table>
+</body>
+
+</html>

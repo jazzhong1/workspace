@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BOM객체</title>
+  <script type="text/javascript">
+    console.log("화면높이 : " + screen.height);
+    console.log("화면넗이 : " + screen.width);
+    console.log("사용하는실제넓이 : " + screen.availWidth);
+    console.log("사용하는실제높이 : " + screen.availHeight);
+    console.log("사용 가능한 색상수 : " + screen.colorDepth);
+    console.log("한픽셀당 비트수 : " + screen.pixelDepth);
+    //screen은 객체이기때문에 이렇게 접근한다.
+    window.onload = tt;
+
+    function tt() {
+      for (var i in screen) {
+        document.getElementById('div').innerHTML += i + ':' + screen[i] + "<br />";
+      }
+    };
+
+    function test1() {
+      var win = open("", "", "width=" + screen.width + ",height=" + screen.heigth);
+      setInterval(function() {
+        win.resizeBy(-20, -20);
+        win.moveBy(100, 100);
+      }, 20)
+    }
+    function hreftest() {
+        location.href="http://www.naver.com";
+    }
+    function assigntest() {
+        location.assign("http://www.daum.net");
+    }
+    function reloadtest() {
+        location.reload()
+    }
+    function replacetest() {
+        location.replace("http://www.nate.com");
+    }
+
+    function nav() {
+      for(var t in navigator){
+        document.getElementById('div2').innerHTML+= t+' : '+navigator[t]+"<br />";
+      }
+    }
+    function navi() {
+       var doc=document.getElementById("nav");
+       for (var k in navigator){
+           doc.innerHTML+=k+" "+navigator[k]+"<br>";
+       }
+       doc.innerHTML+="===================================<br>";
+       doc.innerHTML+="브라우저의 코드명 : "+navigator.appCodeName+"<br />";
+       doc.innerHTML+="브라우저의 이름 : "+navigator.appName+"<br />";
+       doc.innerHTML+="브라우저의 버전정보 : "+navigator.appVersion+"<br />";
+       doc.innerHTML+="브라우저의 전체정보 : "+navigator.userAgent+"<br />";
+       doc.innerHTML+="브라우저의 언어 : "+navigator.language+"<br />";
+       doc.innerHTML+="브라우저의 쿠키허용여부 : "+navigator.cookieEnabled+"<br />";
+       doc.innerHTML+="브라우저의 운영체제 : "+navigator.platform+"<br />";
+    }
+  </script>
+</head>
+
+<body>
+  <h1>screen</h1>
+  <div id="div"></div>
+  <button type="button" name="button" onclick="test1()">화면에 꽉차게</button>
+  <hr>
+  <h1>screen</h1>
+  <div id="div1"></div>
+  <button type="button" name="button" onclick="hreftest()">herf이동</button>
+  <button type="button" name="button" onclick="assigntest()">assign이동</button>
+  <button type="button" name="button" onclick="reloadtest()">reload이동</button>
+  <button type="button" name="button" onclick="replacetest()">replace이동</button>
+  <hr>
+  <h1>navigator</h1>
+  <div id="div2"></div>
+  <button type="button" name="button" onclick="navi()">nav출력</button>
+  <hr>
+
+  <h1>nav</h1>
+  <div id="nav">
+  </div>
+  <button type="button" name="button" onclick="navi()">출력</button>
+  <!--브라우저의 코드명 : Mozilla
+      브라우저의 이름 : Netscape  대부분 모질라.-->
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>연산자</title>
+  <script type="text/javascript">
+    document.write("<h1>==비교연산자</h1>")
+    document.write("3==3 : " + (3 == '3') + "<br>");
+    document.write("3==3 : " + (3 == 3) + "<br>");
+    document.write("3!=3 : " + (3 != 3) + "<br>");
+    document.write("3!='3' : " + (3 != '3') + "<br>");
+    document.write("<h1>=== / !== 비교연산자</h1>")
+    document.write("3==='3' : " + (3 === '3') + "<br>");
+    document.write("3===3 : " + (3 === 3) + "<br>");
+    document.write("3!==3 : " + (3 !== 3) + "<br>");
+    document.write("3!=='3' : " + (3 !== '3') + "<br>");
+
+    document.write("<h1>삼항연산자</h1>")
+    var input = prompt("숫자입력 : ");
+    // input%2==0?document.write("짝수<br>"):document.write("홀수<br>");
+
+
+    document.write("<h1>짧은 연산자</h1>");
+    input % 2 == 0 && alert('짝수');
+    input % 2 == 0 || alert('홀수');
+
+    //window.onload는 그 prompt와 비슷한것 바로 body에 띄우는개념
+    //setInterval 반복문이라는 개념으로 60000은 밀리세컨으로 분마다 반복하는 것
+    //
+    // window.onload=setInterval(timetest(),3000);
+    function timetest() {
+      var time = new Date().getMinutes();
+      var hour = new Date().getHours();
+      var doc = document.getElementById("time");
+      console.log(time);
+      console.log(hour);
+
+      if (hour < 12) {
+        switch (time) {
+          case 50:
+            doc.innerHTML = "쉬는시간";
+            break;
+          default:
+            doc.innerHTML="수업시간";
+            break;
+        }
+      }
+      else{
+        switch (time) {
+          case 20:
+                doc.innerHTML="쉬는시간";
+            break;
+          default:doc.innerHTML="수업시간";
+          break;
+
+        }
+      }
+
+    }
+  </script>
+
+</head>
+
+<body>
+  <h1>switch</h1>
+  <div id="time">
+    <button type="button" name="button" onclick="timetest()">실행</button>
+  </div>
+</body>
+
+</html>

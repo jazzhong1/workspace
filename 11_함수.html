@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>함수선언</title>
+  <script type="text/javascript">
+    //선언적 함수
+    function test() {
+      //로직
+      alert("난 선언적함수.");
+      return;
+    }
+    test();
+
+    //익명함수
+    var fun = function() {
+      alert("익명함수야");
+    }
+    fun();
+
+    //자동실행 익명함수
+    //이 위치에왔을때 실행하는 개념임
+
+    function argutest(name) {
+      //자료형 필요없음
+      var doc = document.getElementById("argu");
+      doc.innerHTML = "당신의 이름은 : " + name + "입니까?";
+    }
+
+    function argutest(name) {
+      //자료형 필요없음
+      var doc = document.getElementById("argu");
+      doc.innerHTML = "당신의 이름은 : " + name + "입니까?";
+    }
+
+    function argu1(obj) {
+      var doc = document.getElementById("argu1");
+      doc.innerHTML = obj;
+      console.log(obj);
+      obj.innerHTML = "졸지말고공부";
+    }
+
+    function returntest() {
+      document.getElementById('re').innerHTML = printName();
+      // 여기서리턴
+    }
+
+    function returntest2() {
+      document.getElementById('re1').innerHTML = empty();
+      // 여기서리턴
+    }
+
+    function printName() {
+      return prompt("이름");
+    }
+
+    function empty() {
+      return;
+    }
+
+    function varifunc() {
+      var str;
+      for (var i = 0; i < arguments.length; i++) {
+        if (i == 0) {
+          str = arguments[i];
+        } else if (i == arguments.length - 1) {
+          str += arguments[i];
+        } else {
+          str += arguments[i] + ',';
+        }
+
+      }
+      document.getElementById('varifunc').innerHTML = str;
+    }
+
+    function funcargu(printName) { //f1==pritNmae();
+      document.getElementById("funcargu").innerHTML = printName();
+    }
+
+    function funcargu1() {
+      pritFood(function() {
+        return prompt("좋아하는음식");
+      })
+    }
+
+    function pritFood(f1) {
+      document.getElementById("funcargu").innerHTML += f1();
+    }
+
+    function refunc() {
+      return function () {
+          alert("리턴된 익명함수함수실행");
+      }
+    }
+    refunc()();
+    //리턴된 함수까지 받는다.
+  </script>
+</head>
+
+<body>
+  <div id="test">
+    <script type="text/javascript">
+      (function() {
+        // alert("자동실행됨");
+        var doc = document.getElementById("test");
+        doc.innerHTML = "하잇"
+        doc.setAttribute("style", "background-color:red");
+      })();
+    </script>
+  </div>
+
+  <h1>매개변수가 있는함수</h1>
+  <div id="argu">
+  </div>
+  <br>
+  <button onclick='argutest(prompt("이름입력"))'>매개변수</button>
+  <button onclick='argutest()'>매개변수없이 호출</button>
+  <button onclick='argutest(prompt("이름입력"),"박보영")'>매개변수없이 호출</button>
+  <!--매개변수하 하나더있는ㄱㅇ우 undefine으로 설정해서 실행한다.-->
+
+  <h1>자기자신 매개변수(this)</h1>
+  <div id="argu1">
+  </div>
+  <br>
+  <button type="button" name="button" onclick="argu1(this)">실행</button>
+  <!--내가 호출한곳에 있는 태그 앨리먼트가 들어온다.-->
+
+  <h1>리턴값확인</h1>
+  <div id='re'></div>
+  <br>
+  <button onclick='returntest()'>리턴실행</button>
+
+  <h1>리턴값없는메소드</h1>
+  <div id='re1'></div>
+  <br>
+  <button onclick='returntest2()'>리턴값 없는 매소드</button>
+
+  <h1>가변인자함수</h1>
+  <div id='varifunc'></div>
+  <br>
+  <button onclick='varifunc(1,2,3,4,5)'>가변인자함수</button>
+
+  <h1>함수매개변수</h1>
+  <div id='funcargu'></div>
+  <br>
+  <button onclick='funcargu(printName)'>가변인자함수</button>
+  <button onclick='funcargu1()'>익명함수 매개변수</button>
+
+  <h1>리턴함수</h1>
+  <div id='refunc'></div>
+  <br>
+  <button onclick='refunc()()'>가변인자함수</button>
+  <!--retrun 이있어야 받을수 있다.함수안에있는 함수를 실행하는 개념-->
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>형변환</title>
+  <script type="text/javascript">
+    function test() {
+
+      var test1 = 7 + 7;
+      var test2 = 7 + "7";
+      var test3 = "7" + 7;
+      var test4 = "7" + "7";
+      var test5 = 7 + 7 + "7";
+      var test6 = 7 + "7" + 7;
+      var test7 = "7" + 7 + 7;
+      var test8 = "7" + (7 + 7);
+
+      var doc = document.getElementById('area');
+
+      doc.innerHTML += "7+7=" + test1 + "<br>";
+      doc.innerHTML += "7+'7'=" + test2 + "<br>";
+      doc.innerHTML += "'7'+7=" + test3 + "<br>";
+      doc.innerHTML += "'7'+'7'=" + test4 + "<br>";
+      doc.innerHTML += "7+7+'7'=" + test5 + "<br>";
+      doc.innerHTML += "7+'7'+7=" + test6 + "<br>";
+      doc.innerHTML += "'7'+7+7=" + test7 + "<br>";
+      doc.innerHTML += "'7'+(7+7)=" + test2 + "<br>";
+      doc.innerHTML += '<h1>이외의 연산자</h1>';
+      doc.innerHTML += "7-'7'=" + (7 - '7') + "<br>";
+      // - 는 숫자에 맞으면자라도 연산을 실행하여 처리한다.
+      doc.innerHTML += "자료형 : " + typeof(7 - '7');
+
+
+
+    }
+  </script>
+
+  <script type="text/javascript">
+    function test2() {
+      var money = '1000원';
+      var dollor = '1.5USD';
+      var doc = document.getElementById('area1');
+      doc.innerHTML += "Number(money) : " + Number(money) + "<br>";
+      doc.innerHTML += "Number(dollor) : " + Number(dollor) + "<br>";
+      doc.innerHTML += "parseInt(money) : " + parseInt(money) + "<br>";
+      doc.innerHTML += "parseInt(dollor) : " + parseInt(dollor) + "<br>";
+      doc.innerHTML += "parseFloat(money) : " + parseFloat(money) + "<br>";
+      doc.innerHTML += "parseFloat(dollor) : " + parseFloat(dollor) + "<br>";
+      doc.innerHTML += 'parseInt("FF",16) : ' + parseInt("FF", 16) + "<br>";
+      doc.innerHTML += 'parseInt("10",2) : ' + parseInt("10", 2) + "<br>";
+
+    }
+  </script>
+</head>
+
+<body>
+  <div id="area">
+  </div>
+  <button type="button" name="button" onclick="test()">형변환</button>
+
+  <h1>숫자형으로 강제적 형변환</h1>
+  <div id='area1'>
+  </div>
+  <button type="button" name="button" onclick="test2()">실행</button>
+</body>
+
+</html>

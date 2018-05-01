@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>데이터 출력하기</title>
+  <script>
+    var str="자바스크립트에 세상에 오신걸 환영합니다";
+    document.write("<h1>자바스크립트에 세상에 오신걸 환영합니다.</h1>");
+    window.alert("알람창으로 출력");
+    window.alert("나나나");
+    document.body.innerHTML+="innerHTML을 사용하여 출력";
+    //여기선 대입이다.
+
+    //객체이기때문에 대입증감연산자로 text노드에 위에 이미 2개의 출력문이 들어가있다. 대입이아는 +=를 한다면 모두 출력할수 있다.
+    console.log("콘솔에 출력");
+    //개발자 도구에서 출력
+    console.log(str);
+  </script>
+
+
+
+</head>
+
+<body>
+    <div id='test'>
+      <script type="text/javascript">
+      document.getElementById('test').innerHTML="innerHTML을 사용하여 출력";
+
+      </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dom활용하기</title>
+  <script type="text/javascript">
+    count = 0;
+
+    function createOn() {
+      count++;
+      var doc = document.getElementById("ele");
+      var addel = document.createElement('p');
+      var text = document.createTextNode("생성된노드 : " + count);
+      addel.appendChild(text);
+      doc.appendChild(addel); //div id로 쏴주는 연결
+    }
+
+    function insertCreate(text) {
+      var result = text;
+      var doc = document.getElementById('ele2');
+      var addel = document.createElement('h4');
+      var str = document.createTextNode("출력 : " + result);
+      addel.appendChild(str);
+      doc.appendChild(addel);
+    }
+
+    function deleteTest() {
+      var target=document.getElementsByTagName('p');
+      console.log(target);
+      //배열로 저장. 인덱스로 접근가능
+      document.getElementById('ele').removeChild(target[(target.length-1)]);
+      //부모객체 알고있을때
+
+      target[0].parentNode.removeChild(target[(target.length-1)]);
+      //부모객체를 모를때 상위객체에 가서 수정
+    }
+
+    function addpic() {
+
+      var doc = document.getElementById('picture');
+      var pic = document.createElement('img');
+      pic.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZmkk3t7wahIflyHiIgPehQBgYjPQ_G71vNhP6D39cUQMGrbRRjw');
+      pic.setAttribute('width', 50);
+      pic.setAttribute('height', 50);
+      //그냥 숫자값으로들어간다.
+      //<img src="주소" alt="" width=300 height=500/>태그가 생성된거임
+      doc.appendChild(pic);
+    }
+
+    function deletepic() {
+          var target=document.getElementsByTagName('img');
+          target[0].parentNode.removeChild(target[(target.length-1)]);
+          console.log(target);
+    }
+    function bigimg() {
+          var target=document.getElementsByTagName('img');
+          for (var i = 0; i < target.length; i++) {
+            target[i].style.transform= 'scale3d(2,2,2)';
+          }
+
+
+    }
+
+    function addTr() {
+      count++;
+      console.log(count);
+      var table = document.getElementById('ta');
+      var tr = document.createElement('tr');
+      var td1 = document.createElement('td');
+      var td2 = document.createElement('td');
+      var td3 = document.createElement('td');
+      var td4 = document.createElement('td');
+      var title = document.createTextNode("제목:");
+      var writer = document.createTextNode("작성자:");
+      var value = document.createTextNode("내용:");
+      var co = document.createTextNode("번호" + count);
+      //매개변수와 대입변수가 같으면 오류남.
+
+
+      td1.appendChild(title);
+      //<td>내용</td>
+      td2.appendChild(writer);
+      td3.appendChild(value);
+      td4.appendChild(co);
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tr.appendChild(td4);
+      //<tr><td>내용</td></tr>
+      table.appendChild(tr);
+      //<table><tr><td>내용</td></tr></table>
+    }
+
+    function addTr1(count1) {
+      for (var i = 0; i < count1; i++) {
+        count++;
+        console.log(count);
+        var table = document.getElementById('ta2');
+        var tr = document.createElement('tr');
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        var td4 = document.createElement('td');
+        var title = document.createTextNode("제목:");
+        var writer = document.createTextNode("작성자:");
+        var value = document.createTextNode("내용:");
+        var co = document.createTextNode("번호" + count);
+        //매개변수와 대입변수가 같으면 오류남.
+
+
+        td1.appendChild(title);
+        //<td>내용</td>
+        td2.appendChild(writer);
+        td3.appendChild(value);
+        td4.appendChild(co);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        //<tr><td>내용</td></tr>
+        table.appendChild(tr);
+        //<table><tr><td>내용</td></tr></table>
+      }
+    }
+
+    function addTr2(count1) {
+
+      var table = document.getElementById('ta3');
+      input1 = prompt("행");
+      input2 = prompt("열");
+      for (var n = 0; n < input1; n++) {
+        var tr = document.createElement('tr');
+        for (var i = 0; i < input2; i++) {
+          var td = document.createElement('td');
+          var text = document.createTextNode("내용");
+          td.appendChild(text);
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    }
+
+    function change() {
+      var doc = document.getElementById('st');
+
+      doc.style.width = '200px';
+      doc.style.height = '200px';
+      doc.style.backgroundColor = 'red';
+      doc.style.transform = 'translate(100,100)';
+      doc.style.transform = "rotate(400deg)";
+      doc.style.transition = "all 2s";
+    }
+
+
+  </script>
+</head>
+
+<body>
+  <h1>기본요소, 텍스트 노드생성</h1>
+  <div id="ele">
+  </div>
+  <button type="button" name="button" onclick='createOn()'>생성</button>
+
+  <hr>
+  <h1>입력출력</h1>
+  <div id="ele2">
+  </div>
+  <button type="button" name="button" onclick='insertCreate(prompt("입력"))'>생성</button>
+
+  <h1>그림출력</h1>
+  <div id="picture">
+  </div>
+  <button type="button" name="button" onmousemove="addpic()">그림출력</button>
+  <button type="button" name="button" onmousemove="deletepic()">그림삭제</button>
+  <button type="button" name="button" onclick="bigimg()">이미지확대</button>
+  <h1>table동적추가</h1>
+  <div>
+    <table border='1' id="ta">
+    </table>
+  </div>
+  <br>
+  <button type="button" name="button" onclick="addTr()">행추가</button>
+
+  <h1>table동적추가ex</h1>
+  <div>
+    <table border='1' id="ta2">
+    </table>
+  </div>
+  <br>
+  <button type="button" name="button" onclick='addTr1(prompt("행입력"))'>행추가</button>
+
+  <h1>table동적추가ex</h1>
+  <div>
+    <table border='1' id="ta3">
+    </table>
+  </div>
+  <br>
+  <button type="button" name="button" onclick='addTr2()'>열추가</button>
+
+  <h1>style변경</h1>
+  <div id='st'></div>
+  <button type="button" name="button" onclick='change()'>열추가</button>
+  <br>
+
+  <h1>객체삭제</h1>
+  <div id='ob1'></div>
+  <button type="button" name="button" onclick='deleteTest()'>객체삭제</button>
+  <br>
+
+
+</body>
+
+</html>

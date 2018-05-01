@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>윈도우객체활용</title>
+    <script type="text/javascript">
+      function test() {
+          window.open('http://www.google.com','구글');
+          //자체가 탭으로 열림
+      }
+      function test1() {
+        window.open('17_캡슐화.html');
+      }
+      function test2() {
+         var win= window.open('','popup','width=500','height=500');
+        // popup은 빈페이지
+        win.document.write('<html><head><body><h1>나의팝업창</h1></body></head></html>')
+      }
+      function test3() {
+        setTimeout(function () {
+            alert("3초후에 켜짐")
+        },3000);  //밀리세컨임 1000이 1초.
+      }
+      function test4() {
+        var other=window.open('','popup');
+        setInterval(function () {
+            other.document.write('<html><head><hody><h1>냠</h1></hody></head></html>')
+        }, 1000);
+        setTimeout(function () {
+            other.window.close();
+        }, 5000);
+      }
+
+      function exam(text,time) {
+        var text=text.value;
+        var time=time.value;
+
+        return setTimeout(function () {
+            alert(text);
+        }, time*1000);
+      }
+      function test5() {
+          var doc=document.getElementById("cli");
+          var count=10;
+          var interid=setInterval(function () {
+              doc.innerHTML="count : "+count--;
+              if (count<0) {
+                  clearInterval(interid);
+                  doc.innerHTML="종료";
+                  window.close();
+              }
+          }, 1000);
+
+      }
+
+      function clock() {
+        var doc=document.getElementById("clock");
+        window.setInterval(function () {
+            var date=new Date();
+            doc.innerHTML = date.getHours()+" :"+date.getMinutes()+" :" +date.getSeconds()+" : ";
+        }, 1000);
+      }
+
+      function go() {
+        var win= window.open('','','width=300','height=300');
+        win.document.write("<html><head><body><h1>내가만든팝업창</h1></body></head></html>");
+        ff=setTimeout(function () {
+            win.close();
+        }, 5000);
+      }
+      function stop() {
+        clearTimeout(ff);
+      }
+
+      window.onload=tt;
+          function tt(){
+              document.getElementById('clock').innerHTML+="스크립트되니?";
+          };
+      //여기있는객체가 없다 텍스트 노드를 블러올수없다.
+      //얘가 읽혔을때는 clock가 없기때문에
+
+    </script>
+  </head>
+  <body>
+        <h1>windowopen</h1>
+        <button type="button" name="button" onclick="test()">기본새창</button>
+        <button type="button" name="button" onclick="test1()">페이지새창</button>
+        <button type="button" name="button" onclick="test2()">빈페이지새창</button>
+        <br>
+        <h1>setTimeout</h1>
+        <!--일정 시간후에 지정된 함수가 한번만 실행되는것 -->
+        <button type="button" name="button" onclick="test3()">실행</button>
+        <button type="button" name="button" onclick="test4()">응용</button>
+        <br>
+        <h3>@실습문제 : 타이머만들기</h3>
+        <p>완료 메시지와 타이머(초)를 매개인자로 받는 타이머 함수 만들기</p>
+        <input type="text" name="" value="" id="text_vaule"> <input type="number" name="" value="" id="time_value">초
+        <button type="button" name="button" onclick='exam(text_vaule,time_value)'>타이머생성</button>
+        <!--보통 함수로 돌릴때 id로 받는다.-->
+        <!--id가 중복이되지는 않으니까-->
+        <h1>setInterval</h1>
+        <div id="clock">
+        </div>
+        <button type="button" name="button" onclick="clock()">실행</button>
+        <br>
+        <h1>clearInterval</h1>
+        <div id="cli">
+        </div>
+        <button type="button" name="button" onclick="test5()">실행</button>
+        <h1>cleartimeout</h1>
+        <div id="ct">
+        </div>
+        <button type="button" name="button" onclick="go()">실행</button>
+        <button type="button" name="button" onclick="stop()">중단</button>
+  </body>
+</html>

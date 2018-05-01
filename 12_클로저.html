@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript">
+    function closure1(name) {
+      var closureprint = name + "님 반갑습니다.";
+      return function() {
+        alert(closureprint);
+      }
+    }
+    var clo = closure1('홍성진');
+    //함수리턴으로 받으니까 alet를 받을수 있다라는 개념
+    clo();
+
+    function closure2(name) {
+      var pp = name + "님 지역변수를 사용하려면 함수로 접근해야한다.";
+      return function() {
+        return pp;
+      }
+    }
+    //
+    function clo2() {
+      var tt = closure2('감스트');
+      console.log(tt);
+      document.getElementById('closure').innerHTML = tt();
+      //함수실행시에는 ();로 접근해야함
+    }
+
+    function docounter() {
+      var cnt = 0;
+      // 처음초기화만해준다.
+      var f = function() {
+        document.getElementById("counter").innerHTML = cnt++;
+        console.log(cnt);
+      }
+      return f;
+    }
+    var count=docounter();
+  </script>
+  <title>클로저</title>
+</head>
+
+<body>
+  <h1>클로저 기본예제</h1>
+  <div id="closure">
+  </div>
+  <br>
+  <button type="button" name="button" onclick='closure1(prompt("이름"))()'>기본클로저</button>
+  <button type="button" name="button" onclick='clo2()'>실행</button>
+  <hr>
+  <h1>카운트 만들기!</h1>
+  <div id="counter"></div>
+  <button type="button" name="button" onclick='count()'>숫자세기</button>
+</body>
+
+</html>

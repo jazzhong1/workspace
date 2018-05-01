@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style media="screen">
+    h1 {
+      text-align: center;
+    }
+
+    #tab {
+      border: 1px solid black;
+    }
+
+    .td {
+      border: 1px solid black;
+      background-color: rgb(247, 250, 222);
+      color: rgb(249, 179, 0);
+      text-align: right;
+    }
+
+    .td td {
+      text-align: right;
+    }
+
+    #tab td {
+      border: 1px solid black;
+
+    }
+
+    .td1 {
+      position:static;
+
+    }
+    .div table{
+      align:center;
+    }
+  </style>
+  <script type="text/javascript">
+
+    function doOpenCheck(chk) {
+      var obj = document.getElementsByName("main");
+      for (var i = 0; i < obj.length; i++) {
+        if (obj[i] != chk) {
+          obj[i].checked = false;
+        }
+      }
+    }
+
+    function allCheck() {
+      var obj = document.getElementsByName("all");
+      for (var i = 0; i < obj.length; i++) {
+          obj[i].checked = true;
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <div class="div">
+    <h1><u>거래처등록</u></h1>
+
+    <table id="tab" align="center">
+      <form class="" action="index.html" method="get">
+      <tr>
+        <td class='td'>거래처명</td>
+        <td><input type="text" name="corres" value=""></td>
+      </tr>
+      <tr>
+        <td class='td'>주소</td>
+        <td><input type="text" name="address" value="" size="50"></td>
+      </tr>
+      <tr>
+        <td class='td'>전화번호</td>
+        <td><input type="text" name="phone" value=""></td>
+      </tr>
+      <tr>
+        <td class='td'>품명</td>
+        <td><label for=""><input type="checkbox" name="main" value="main" onclick="doOpenCheck(this)">메인보드</label>
+          <label for=""><input type="checkbox" name="main" value="moniter" onclick="doOpenCheck(this)">모니터</label>
+          <label for=""><input type="checkbox" name="main" value="print" onclick="doOpenCheck(this)">프린터</label>
+          <label for=""><input type="checkbox" name="main" value="harddisk" onclick="doOpenCheck(this)">하드디스크</label>
+          <label for=""><input type="checkbox" name="main" value="memory" onclick="doOpenCheck(this)">메모리</label>
+          <label for=""><input type="checkbox" name="main" value="cpu" onclick="doOpenCheck(this)">cpu</label>
+        </td>
+      </tr>
+      <tr>
+        <td class='td'>모두선택<input type="checkbox" name="" value="" onclick='allCheck()'> <br> 품명(수입산)
+        </td>
+        <td><label for=""><input type="checkbox" name="all" value="" id='all'>메인보드</label>
+          <label for=""><input type="checkbox" name="all" value="" id='all'>모니터</label>
+          <label for=""><input type="checkbox" name="all" value="" id='all'>프린터</label>
+          <label for=""><input type="checkbox" name="all" value="" id='all'>하드디스크</label>
+          <label for=""><input type="checkbox" name="all" value="" id='all'>메모리</label>
+          <label for=""><input type="checkbox" name="all" value="" id='all'>cpu</label>
+        </td>
+      </tr>
+      <tr class='td1'>
+        <td align="center" colspan="2"><input type="submit" name="" value="등록"><input type="reset" name="" value="취소"> </td>
+      </tr>
+    </table>
+
+  </form>
+  </div>
+
+</body>
+
+</html>

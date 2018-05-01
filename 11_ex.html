@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style media="screen">
+    .fl {
+      text-align: center;
+      width: 300px;
+      height: 50px;
+      background-color: rgb(232, 221, 238);
+    }
+
+    .d1 {
+      background-color: rgb(196, 199, 63);
+      width: 500px;
+      height: 80px;
+      text-align: left;
+      padding: 10px;
+      display: none;
+    }
+
+  
+  </style>
+  <script type="text/javascript">
+    function radio1() {
+      document.getElementById('title').setAttribute("style", "display:block");
+    }
+    function radio2() {
+      document.getElementById('date').setAttribute("style", "display:block");
+    }
+    function radio3() {
+      document.getElementById('writer').setAttribute("style", "display:block");
+    }
+  </script>
+</head>
+
+<body>
+  <h1>실숩문제 3</h1>
+
+  <div class="">
+    <fieldset class='fl'>
+      <legend>검색할 항목을 선택하세요</legend>
+      <label for=""><input type="radio" name="n" value="" onclick="radio1()">제목</label>
+      <label for=""><input type="radio" name="date" value="" onclick="radio2()">날짜
+      <label for=""><input type="radio" name="writer" value="" onclick="radio3()">작성자</label>
+    </fieldset>
+  </div>
+  <br>
+
+
+
+  <div class="d1" id="title">
+    <form class="" action="11_ex.html" method="get">
+
+      검색할 제목을 입력하세요 : <br>
+      <input type="text" name="" value=""><button type="submit" name="button">검색</button>
+    </form>
+  </div>
+
+  <div class="d1" id="date">
+    <form class="" action="11_ex.html" method="get">
+
+      날짜를 입력하세요 : <br>
+      <input type="date" name="" value=""><button type="submit" name="button">입력</button>
+      <input type="" name="" value=""><button type="submit" name="button">입력</button>
+    </form>
+  </div>
+
+
+  <div class="d1" id="writer">
+    <form class="" action="11_ex.html" method="get">
+      아이디를 을 입력하세요 : <br>
+      <input type="text" name="" value=""><button type="submit" name="button">검색</button>
+    </form>
+  </div>
+
+
+</body>
+
+</html>

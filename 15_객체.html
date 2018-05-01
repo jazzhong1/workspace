@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>객체</title>
+  <script type="text/javascript">
+    function object() {
+      var Person = {
+        이름: '홍성진',
+        나이: 26,
+        주소: '경기도 구리시',
+        직업: '학생'
+      }
+      var doc = document.getElementById('obj');
+    }
+    Person = {
+      name: "홍성진",
+      age: 26,
+      addr: "경기도 구리",
+      job: "강사",
+      pp: function() {
+        return "이름 : " + this.name + " 나이 : " + this.age + " 주소 : " + this.addr + " 직업 : " + this.job;
+      },
+      hobby: ['축구', '공부'],
+      'v*^.~* ~m-..-m~': '추억의 이모티콘'
+      //키값을 쓸때 ''로 키값을 쓰고 불러올때는 [] 안에서 문자로 표시한후 출력한다.
+    }
+
+    var doc = document.getElementById('obj');
+
+    function obj1() {
+      doc.innerHTML = Person['name'] + ' ' + Person['job'];
+    }
+
+    function obj2() {
+      doc.innerHTML = Person.addr + " " + Person.job;
+    }
+
+    function obj3() {
+      doc.innerHTML = Person.pp();
+      doc.innerHTML = Person.hobby;
+    }
+
+    function obj4() {
+      for (var i = 0; i < Person.hobby.length; i++) {
+        doc.innerHTML += Person.hobby[i];
+      }
+    }
+
+    function obj5() {
+      // console.log(Object.values(Person));
+      // doc.innerHTML += Object.values(Person);
+      for (t in Person) { //
+        console.log(t);
+        if (t != 'pp') //인덱스가아닌 키이름이 자동으로 넘어간다.
+          doc.innerHTML += Person[t] + " ";
+        //이름이 자동으로 넘어간다.
+      }
+    }
+
+    function obj6() {
+      console.log(Person["v*^.~* ~m-..-m~"]);
+      // Person.v*^.~* ~m-..-m~
+    }
+
+    function inTest() {
+      var doc = document.getElementById('inwidth');
+      doc.innerHTML += "name : " + ('name' in Person) + "<br>";
+      doc.innerHTML += "beak : " + ('beak' in Person) + "<br>";
+      doc.innerHTML += "'v*^.~* ~m-..-m~' : " + ('v*^.~* ~m-..-m~' in Person) + "<br>";
+      // 이 맴버변수가 있으면 불러서 호출, 없으면 안쓴느 활용
+    }
+
+    function withTest() {
+      var doc = document.getElementById('inwidth');
+      with(Person) {
+        doc.innerHTML += name + " " + age + " ";
+        doc.innerHTML += pp();
+
+        // 객체명을 쓰지않고 맴버 변수명만 쓰고도 사용한다.
+        // 그냥썻을때 window 함수로 찾아간다. 모호성이 있기때문에 ㄱ비권장
+      }
+    }
+
+    function addobj() {
+      var doc = document.getElementById('addobj');
+      for (t in Person) {
+        doc.innerHTML += '원본 : ' + t + ' <br>';
+      }
+      Person.height = 180.5;
+      Person.weight = 60.5;
+      doc.innerHTML += '<br>';
+      for (t in Person) {
+        doc.innerHTML += '수정후 : ' + t + ' <br>';
+      }
+    }
+
+    function delobj() {
+      var doc = document.getElementById('addobj');
+      for (t in Person) {
+        doc.innerHTML += '원본 : ' + t + ' <br>';
+      }
+      delete(Person.height);
+      delete(Person.weight);
+      doc.innerHTML += '<br>';
+      for (t in Person) {
+        doc.innerHTML += '수정후 : ' + t + ' <br>';
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1>객체선언 및 접근</h1>
+  <div id="obj"></div>
+  <button type="button" name="button" onclick='obj1()'>[]으로접근</button>
+  <button type="button" name="button" onclick='obj2()'>.으로 접근</button>
+  <button type="button" name="button" onclick='obj3()'>함수접근</button>
+  <button type="button" name="button" onclick='obj4()'>함수 객체접근</button>
+  <button type="button" name="button" onclick='obj5()'>일괄출력</button>
+  <button type="button" name="button" onclick='obj6()'>특수문자출력</button>
+
+  <h1>in/width</h1>
+  <div id="inwidth">
+  </div>
+  <br>
+  <button type="button" name="button" onclick="inTest()">in실행</button>
+  <button type="button" name="button" onclick="withTest()">width실행</button>
+
+  <h1>객체 속성 추가 및 삭제</h1>
+  <div id="addobj">
+  </div>
+  <br>
+  <button type="button" name="button" onclick='addobj()'>객체속성추가</button>
+  <button type="button" name="button" onclick='delobj()'>객체속성삭제</button>
+
+
+</body>
+
+</html>

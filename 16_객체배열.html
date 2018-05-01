@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>객체배열</title>
+    <script type="text/javascript">
+        var arrObj=[];
+        function arradd() {
+            arrObj.push({이름:'홍성진',나이:26,주소:'경기도구리시'})
+            arrObj.push({이름:'감스트',나이:31,주소:'경기도인천광역시'})
+            arrObj.push({이름:'손흥민',나이:27,주소:'영국런던시'})
+            arrObj.push({이름:'외질',나이:30,주소:'영국런던시'})
+            arrObj.push({이름:'살라',나이:27,주소:'리버풀'})
+
+          for (var i = 0; i < arrObj.length; i++) {
+            for(t in arrObj[i]){  //t는 이름, 나이 키값으로 들어옴.
+                document.getElementById('arrobj').innerHTML+=arrObj[i][t]+' ';
+            }
+            document.getElementById('arrobj').innerHTML+='<br>';
+          }
+        }
+
+        function cobj(){
+          arrObj.push(inputDate('자카',27,'영국런던'));
+          arrObj.push(inputDate('라카제트',28,'영국런던'));
+          arrObj.push(inputDate('오바메앙',27,'영국런던'));
+          printObj();
+        }
+
+        function cobj1(){
+          arrObj.push(new Person('자카',27,'영국런던'));
+          arrObj.push(new Person('미키타리안',28,'영국런던'));
+          arrObj.push(new Person('오바메앙',27,'영국런던'));
+          printObj();
+        }
+
+        function inputDate(name,age,addr) {
+          var Person={
+            name:name,
+            age:age,
+            addr:addr,
+            pp:function(){
+              return this.name+' '+this.age+' '+this.addr;
+            }
+          }
+          return Person;
+        }
+
+        function printObj() {
+            for (var i = 0; i < arrObj.length; i++) {
+              for(t in arrObj[i]){  //t는 이름, 나이 키값으로 들어옴.
+                  document.getElementById('createobj').innerHTML+=arrObj[i][t]+' ';
+              }
+              document.getElementById('createobj').innerHTML+='<br>';
+            }
+        }
+
+        function Person(name,age,addr) {
+          this.name=name;
+          this.age=age;
+          this.addr=addr;
+        }
+        Person.prototype.pp=function(){
+          return this.name+" "+this.age+" "+this.addr;
+        }
+
+    </script>
+  </head>
+  <body>
+      <h1>배열 대입하기</h1>
+      <div id="arrobj"></div>
+      <button type="button" name="button" onclick='arradd()'>배열객체에 추가</button>
+      <hr>
+      <h1>함수를 이용한 객체생성</h1>
+      <div id="createobj"></div>
+      <button type="button" name="button" onclick='cobj()'>배열객체에 추가</button>
+      <button type="button" name="button" onclick='cobj1()'>생성자를 이용한 객체생성</button>
+</body>
+</html>

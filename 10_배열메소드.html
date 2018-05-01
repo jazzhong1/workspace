@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript">
+    function indexOf() {
+      var fruit = ['바나나', '딸기', '키위', '청포도'];
+      var choice = prompt("과일선택 : 바나나','딸기','키위','청포도'");
+      var doc = document.getElementById('array3');
+      if (fruit.indexOf(choice) >= 0) {
+        doc.innerHTML = choice + "의 위치값은 : " + fruit.indexOf(choice);
+      } else {
+        doc.innerHTML = "다시입력하세요";
+      }
+    }
+
+    function concat() {
+      //원본값을 손대지않는다
+      var doc = document.getElementById('array4');
+      var fruits = ['바나나', '딸기', '참외', '청포도'];
+      var verg = ['토마토', '양파', '브로콜리', '상추'];
+      var meat = ['항정살', '부채살', '안심', '갈비살'];
+      var sum = fruits.concat(verg, meat);
+      doc.innerHTML += "원본 과일 : " + fruits + "<br>"
+      doc.innerHTML += "원본 야채 : " + verg + "<br>"
+      doc.innerHTML += "원본 고기 : " + meat + "<br>"
+      doc.innerHTML += "합계 : " + sum;
+    }
+
+    function jo() {
+      var doc = document.getElementById('array5');
+      var meat = ['항정살', '부채살', '안심', '갈비살'];
+      var str = meat.join('/');
+      doc.innerHTML = str;
+    }
+
+    function rever() {
+      var doc = document.getElementById('array6');
+      var num = [5, 4, 6, 1, 8, 2];
+      doc.innerHTML = "원본값 : " + num + "<br>";
+      num.reverse();
+      doc.innerHTML += "수정값 : " + num + "<br>";
+    }
+
+    function so() {
+      var num = [5, 4, 6, 1, 8, 2];
+      document.getElementById('array7').innerHTML = "원본 : " + num + "<br>";
+      num.sort();
+      document.getElementById('array7').innerHTML += "정렬후(오름) : " + num + "<br>";
+      num.sort(function(a, b) {
+        return b - a;
+      });
+      // 내림차순정렬
+
+    }
+
+    meat = ['항정살', '부채살', '안심', '갈비살'];
+
+    function pu() {
+      var doc = document.getElementById("array8");
+      var cho = prompt("좋아하는 고기는?");
+      doc.innerHTML = "원본 : " + meat + "<br>";
+      meat.push(cho);
+      doc.innerHTML += "결과 : " + meat + "<br>";
+    }
+
+    function poptest() {
+      var doc = document.getElementById("array9");
+      doc.innerHTML = "원본 : " + meat + "<br>";
+      meat.pop();
+      doc.innerHTML += "결과 : " + meat + "<br>";
+    }
+
+    function shift() {
+      var doc = document.getElementById("array10");
+      doc.innerHTML = "원본 : " + meat + "<br>";
+      meat.shift();
+      doc.innerHTML += "결과 : " + meat + "<br>";
+    }
+
+    function unshift() {
+      var doc = document.getElementById("array11");
+      var cho = prompt("좋아하는 고기는?");
+      doc.innerHTML = "원본 : " + meat + "<br>";
+      meat.unshift(cho);
+      doc.innerHTML += "결과 : " + meat + "<br>";
+    }
+    //앞에서부터 지운다
+
+    temp = ['외질', '라카제트', '오바메앙', '미키'];
+
+    function sliceteset() {
+      var doc = document.getElementById("array12");
+      doc.innerHTML = "원본 : " + temp + "<br>";
+      //리턴값이 필요하다.
+      var result = temp.slice(1, 3);
+      // 1이상 3미만
+      // The position (up to, but not including)
+      doc.innerHTML += "결과 : " + result + "<br>";
+    }
+
+    function spliceteset1() {
+      var doc = document.getElementById("array13");
+      doc.innerHTML = "원본 : " + temp + "<br>";
+      //리턴값이 필요하다.
+      var result = temp.splice(2, 0, "자카");
+      // plice([index], 제거수, 추가 값)
+      doc.innerHTML += "결과 : " + result + "<br>";
+    }
+
+    function spliceteset2() {
+      var doc = document.getElementById("array14");
+      doc.innerHTML = "원본 : " + temp + "<br>";
+      //리턴값이 필요하다.
+      var result = temp.splice(2, 3);
+      // plice([index], 제거수, 추가 값)
+      doc.innerHTML += "결과 : " + result + "<br>";
+    }
+
+    function tostr() {
+      var doc = document.getElementById("array15");
+      var temp = ['외질', '정우성', '라카제트', '오바메앙', '미키'];
+
+      doc.innerHTML = "원본 : " + temp + "<br>";
+      //리턴값이 필요하다.
+      var result = temp.tostring();
+      //문자열로 리턴
+      doc.innerHTML += "결과 : " + result + "<br>";
+    }
+  </script>
+  <title>배열메소드</title>
+</head>
+
+<body>
+  <h1>indexof</h1>
+  <div id="array3"></div>
+  <button type="button" name="button" onclick="indexOf()">실행</button>
+  <hr>
+  <h1>concat</h1>
+  <div id="array4"></div>
+  <button type="button" name="button" onclick="concat()">실행</button>
+  <hr>
+  <h1>join</h1>
+  <div id="array5"></div>
+  <button type="button" name="button" onclick="jo()">실행</button>
+  <hr>
+  <h1>reverse</h1>
+  <div id="array6"></div>
+  <button type="button" name="button" onclick="rever()">실행</button>
+  <hr>
+  <h1>sort</h1>
+  <div id="array7"></div>
+  <button type="button" name="button" onclick="so()">실행</button>
+  <hr>
+  <h1>pu</h1>
+  <div id="array8"></div>
+  <button type="button" name="button" onclick="pu()">실행</button>
+  <hr>
+  <h1>pop</h1>
+  <div id="array9"></div>
+  <button type="button" name="button" onclick="poptest()">실행</button>
+  <hr>
+  <h1>shift</h1>
+  <div id="array10"></div>
+  <button type="button" name="button" onclick="shift()">실행</button>
+  <hr>
+  <h1>unshift</h1>
+  <div id="array11"></div>
+  <button type="button" name="button" onclick="unshift()">실행</button>
+
+  <hr>
+  <h1>slice</h1>
+  <div id="array12"></div>
+  <button type="button" name="button" onclick="sliceteset()">실행</button>
+
+
+  <hr>
+  <h1>splice1</h1>
+  <div id="array13"></div>
+  <button type="button" name="button" onclick="spliceteset1()">실행</button>
+
+  <hr>
+  <h1>splice2</h1>
+  <div id="array14"></div>
+  <button type="button" name="button" onclick="spliceteset2()">실행</button>
+
+  <hr>
+  <h1>tostr</h1>
+  <div id="array15"></div>
+  <button type="button" name="button" onclick="tostr()">실행</button>
+</body>
+
+</html>

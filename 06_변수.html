@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>변수</title>
+  <script type="text/javascript">
+    function localvari() {
+      var local = '지역변수';
+      entri = '전역변수';
+      //함수 안에 있는 지역변수
+      //윈도우에 맴버변수이다.
+    }
+    localvari();
+    //지역변수는 불러올수 ㅓㅄ음.
+    // alert(window.local);
+    // alert(entri);
+
+    var str = 'javascript';
+    var str1 = "자바스크립트";
+    var str2 = "이순신,홍길동,홍성진"
+    // '',""둘다 사용가능
+    console.log(str.toUpperCase());
+    console.log(str.toLowerCase());
+    console.log(str.length);
+    console.log(str.indexOf('s'));
+    console.log(str.lastIndexOf('t'));
+    console.log(str.charAt(5));
+    console.log(str.substring(0, 3));
+    var sp = str2.split(',');
+    console.log(sp);
+    for (var i = 0; i < sp.length; i++) {
+      document.write(sp[i] + "<br>");
+    }
+
+
+    //숫자형
+    // var num=19;
+    // var num2=60.5;
+    // console.log(num);
+    // console.log(num2);
+
+    //math객체를 활용한 숫자형식
+  </script>
+
+</head>
+
+<body>
+  <h3>Math 객체활용</h3>
+  <div id="area1">
+    <script type="text/javascript">
+      var num1 = 123;
+      var num2 = 123.456;
+      var doc = document.getElementById('area1');
+      doc.innerHTML = "절대값 : " + Math.abs(num1) + "<br>";
+      doc.innerHTML += "반올림 : " + Math.round(num2) + "<br>";
+      doc.innerHTML += "내림 : " + Math.floor(num2) + "<br>";
+      doc.innerHTML += "올림 : " + Math.ceil(num2) + "<br>";
+      doc.innerHTML += "랜덤값(1~10) : " + Math.floor((Math.random() * 10) + 1) + "<br>";
+      doc.innerHTML += "NaN출력 : " + (num1 - '숫자아님') + "<br>";
+    </script>
+
+    <h3>기타자료형</h3>
+    <div id="area2">
+      <script type="text/javascript">
+        var doc = document.getElementById('area2');
+        var flag = true; //boolean형 자료형
+        doc.innerHTML = "boolean출력 : " + flag + "<br>";
+        var obj = {
+          이름: "홍성진",
+          나이: 19,
+          주소: "경기도 구리시"
+        };
+        // key value값으로 표시
+        doc.innerHTML += "객체출력 : " + obj["이름:"] + obj["나이"] + "<br>";
+        var func = function() {
+          alert('난 변수에저장된 함수');
+        }
+
+        doc.innerHTML += "함수출력 : " + func + "<br>";
+        var unde;
+        doc.innerHTML += "undined : " + unde + "<br>";
+      </script>
+    </div>
+  </div>
+</body>
+</html>

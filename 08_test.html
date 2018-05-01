@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>08_test</title>
+  <style media="screen">
+    .area {
+      width: 100%;
+      height: 200px;
+      border: 1px solid black;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function f1() {
+      alert("alter창 확인");
+    }
+
+    function f2() {
+      confirm("확인취소");
+    }
+
+    function f3() {
+      var area = document.getElementById("area")
+      var name = prompt("이름:");
+      area.innerHTML += "리턴값 확인:" + name;
+    }
+
+    function f4() {
+      var area = document.getElementById("area2")
+      var name = prompt("이름:");
+      area.innerHTML += "리턴값 확인:" + name;
+    }
+
+    function f5() {
+      var name = document.getElementsByName("name")
+      var result = name[0].value;
+      console.log(result);
+      confirm(result);
+    }
+
+    function f5() {
+      var name = document.getElementsByName("name")
+      var result = name[0].value;
+      console.log(result);
+      confirm(result);
+    }
+
+    function add() {
+      var area3=document.getElementById("area3");
+      var value = Number(document.getElementsByName("value1")[0].value);
+      value += Number(document.getElementsByName("value2")[0].value);
+      area3.innerHTML="계산결과"+value;
+      console.log(value);
+
+    }
+
+    function minus() {
+      var value = Number(document.getElementsByName("value1")[0].value);
+      value -= Number(document.getElementsByName("value2")[0].value);
+      area3.innerHTML="계산결과"+value;
+      console.log(value);
+    }
+
+
+    function mult() {
+      var value = Number(document.getElementsByName("value1")[0].value);
+            //객체를 바로 넣는것이아니라 인덱스값으로 접근해 하나하나를 넣어준다.
+      value *= Number(document.getElementsByName("value2")[0].value);
+      area3.innerHTML="계산결과"+value;
+      console.log(value);
+    }
+
+    function div() {
+      var value = Number(document.getElementsByName("value1")[0].value);
+      value /= Number(document.getElementsByName("value2")[0].value);
+      area3.innerHTML="계산결과"+value;
+      console.log(value);
+    }
+
+    function mod() {
+      var value = Number(document.getElementsByName("value1")[0].value);
+      value %= Number(document.getElementsByName("value2")[0].value);
+      area3.innerHTML="계산결과"+value;
+      console.log(value);
+    }
+  </script>
+
+</head>
+
+<body>
+  <div id="area">
+    <h1>자바스크립트에서 제공하는 다이얼 로그확인</h1>
+    <p> 1.확인버튼과 메시지를 출력하는 alert 창 <button type="button" name="button" onclick="f1()">확인</button></p>
+    <p>2.확인,취소버튼과 메세지를 출력하는 confirm창<button type="button" name="button" onclick="f2()">확인</button></p>
+    <p>3.메시지,텍스트필드,확인,취소버튼을 제공하는 propmt창<button type="button" name="button" onclick="f3()">확인</button></p>
+  </div>
+  <hr>
+  <div id="area2">
+    <h1>자바스크립트에서 값을 입력받는 법</h1>
+    <p>1.promt창을 통해 입력받는방법 <button type="button" name="button" onclick="f4()">확인</button></p>
+    <p>2.form태그의 input 컨트롤을 통해서 입력받는법</p>
+    <p>이름을 입력하세요 : <input type="text" name="name" placeholder="이름입력"><button type="button" name="button" onclick="f5()">확인</button> </p>
+  </div>
+  <hr>
+
+  <div>
+    <h1>문자열 숫자로 바꾸기</h1>
+    <p>첫번째 값:<input type="text" name="value1" value=""></p>
+    <p>두번째 값:<input type="text" name="value2" value=""></p>
+    <button type="button" name="button" onclick="add()">+</button>
+    <button type="button" name="button" onclick="minus()">-</button>
+    <button type="button" name="button" onclick="mult()">x</button>
+    <button type="button" name="button" onclick="div()">/</button>
+    <button type="button" name="button" onclick="mod()">%</button>
+  </div>
+  <div id="area3">
+  </div>
+</body>
+
+</html>
