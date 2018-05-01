@@ -52,8 +52,8 @@
     function test3() {
       var regExp = /^j/gi; //g 처음부터끝까지
       //i 대소문자구별안하고
-      //줄바꿈을해도 신경안쓰고찾음
       var regExp2 = /^j/gim;
+      //m줄바꿈을해도 신경안쓰고찾음
       var str = 'javascript\njquery\najax';
       var doc = document.getElementById('area4');
       doc.innerHTML += '/^/gi : ' + str.replace(regExp, "($&)") + "<br />";
